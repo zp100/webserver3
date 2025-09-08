@@ -8,9 +8,14 @@
         const port = import.meta.env['VITE_BACKEND_PORT']
 
         const status_url = `${host}:${port}/status`
-        const response = await fetch(status_url)
-        const result = await response.json()
-        server_status.value = result['status']
+        try {
+            const response = await fetch(status_url)
+            const result = await response.json()
+            server_status.value = result['status']
+        } catch (e) {
+            console.error(e.message)
+            server_status.value = '<fetch error>'
+        }
     }
 </script>
 
