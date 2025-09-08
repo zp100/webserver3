@@ -4,7 +4,7 @@
     const server_status = ref('...')
 
     async function get_server_status() {
-        const host = import.meta.env['VITE_BACKEND_HURL']
+        const host = import.meta.env['VITE_BACKEND_URL']
         const port = import.meta.env['VITE_BACKEND_PORT']
 
         const status_url = `${host}:${port}/status`
