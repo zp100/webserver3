@@ -4,8 +4,8 @@
     const server_status = ref('...')
 
     async function get_server_status() {
-        const host = 'http://localhost'
-        const port = 8081
+        const host = import.meta.env['VITE_BACKEND_HOST']
+        const port = import.meta.env['VITE_BACKEND_PORT']
 
         const status_url = `${host}:${port}/status`
         const response = await fetch(status_url)
